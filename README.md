@@ -1,7 +1,7 @@
 leetcodepractice
 ================
 
-AC Rates	Read	Attemp1	Attemp2	Attemp3	Attemp4	Attemp5	Title
+Rates Read	Attemp1	Attemp2	Attemp3	Attemp4	Attemp5	Title
 16.50%	Y						3Sum
 26.80%	Y						3Sum Closest
 21.20%	Y						4Sum
