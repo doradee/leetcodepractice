@@ -30,6 +30,8 @@ public class LongestPalindrome {
   
   /* this is a dynamic programming approach */
   /* This is the accepted answer */
+  /* credit goes to : 
+   * https://github.com/azheanda/leetcode/blob/master/longestprolindromicsubstring.java */
   public static String find_LPS2(String s) {
     String result = s.substring(0, 1);
     if (s.isEmpty()) {
