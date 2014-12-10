@@ -61,8 +61,9 @@ public class ThreeSum {
   }
   
   /* This solution is also accepted. Inspired by 九章算法's 4sum algorithm. */
-  /* the complexity of this solution is o(n^2), which takes full advantage
-   * of the sorted array/
+  /*
+   * the complexity of this solution is o(n^2), which takes full advantage of
+   * the sorted array/
    */
   public static ArrayList<ArrayList<Integer>> threeSum(int[] num) {
     ArrayList<ArrayList<Integer>> result = new ArrayList<ArrayList<Integer>>();
@@ -74,8 +75,8 @@ public class ThreeSum {
       int left = i + 1;
       int right = num.length - 1;
       while (left < right) {
-        int sum = num[i] + num[left] + num[right]; 
-        if (sum == 0 ) {
+        int sum = num[i] + num[left] + num[right];
+        if (sum == 0) {
           ArrayList<Integer> candidate = new ArrayList<Integer>();
           candidate.add(num[i]);
           candidate.add(num[left]);
@@ -85,10 +86,10 @@ public class ThreeSum {
           }
           left++;
           right--;
-          while (left < num.length && num[left -1] == num[left]) {
+          while (left < num.length && num[left - 1] == num[left]) {
             left++;
           }
-          while (right > 0 && num[right+1] == num[right]) {
+          while (right > 0 && num[right + 1] == num[right]) {
             right--;
           }
         } else if (sum < 0) {
@@ -103,7 +104,7 @@ public class ThreeSum {
   
   public static void main(String[] args) {
     int[] input1 = { -3, 3, 0, 2, -1, -1, 0, 0, 0, -1, 2, 3, 4 };
-    int[] input2 = {0, 0 , 0};
+    int[] input2 = { 0, 0, 0 };
     System.out.println(threeSum(input1).toString());
     System.out.println(threeSum(input2).toString());
   }
