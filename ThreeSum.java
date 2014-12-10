@@ -13,14 +13,13 @@ public class ThreeSum {
    * example, given array S = {-1 0 1 2 -1 -4}, A solution set is: (-1, 0, 1)
    * (-1, -1, 2)
    */
-  
   /* This solution is accepted */
   /*
    * This solution has n^2logn complexity. However, it avoids many duplicates:
    * such as: first element is positive; sum of first two element is positive;
    * same first element; same second element;
    */
-  public static ArrayList<ArrayList<Integer>> threeSum(int[] num) {
+  public static ArrayList<ArrayList<Integer>> threeSum1(int[] num) {
     ArrayList<ArrayList<Integer>> result = new ArrayList<ArrayList<Integer>>();
     Arrays.sort(num);
     for (int i = 0; i < num.length - 2 && num[i] <= 0; i++) {
@@ -61,8 +60,51 @@ public class ThreeSum {
     }
   }
   
+  /* This solution is also accepted. Inspired by 九章算法's 4sum algorithm. */
+  /* the complexity of this solution is o(n^2), which takes full advantage
+   * of the sorted array/
+   */
+  public static ArrayList<ArrayList<Integer>> threeSum(int[] num) {
+    ArrayList<ArrayList<Integer>> result = new ArrayList<ArrayList<Integer>>();
+    Arrays.sort(num);
+    for (int i = 0; i < num.length - 2 && num[i] <= 0; i++) {
+      if (i >= 1 && (num[i] == num[i - 1])) {
+        continue;
+      }
+      int left = i + 1;
+      int right = num.length - 1;
+      while (left < right) {
+        int sum = num[i] + num[left] + num[right]; 
+        if (sum == 0 ) {
+          ArrayList<Integer> candidate = new ArrayList<Integer>();
+          candidate.add(num[i]);
+          candidate.add(num[left]);
+          candidate.add(num[right]);
+          if (!result.contains(candidate)) {
+            result.add(candidate);
+          }
+          left++;
+          right--;
+          while (left < num.length && num[left -1] == num[left]) {
+            left++;
+          }
+          while (right > 0 && num[right+1] == num[right]) {
+            right--;
+          }
+        } else if (sum < 0) {
+          left++;
+        } else {
+          right--;
+        }
+      }
+    }
+    return result;
+  }
+  
   public static void main(String[] args) {
-    int[] input = { -3, 3, 0, 2, -1, -1, 0, 0, 0, -1, 2, 3, 4 };
-    System.out.println(threeSum(input).toString());
+    int[] input1 = { -3, 3, 0, 2, -1, -1, 0, 0, 0, -1, 2, 3, 4 };
+    int[] input2 = {0, 0 , 0};
+    System.out.println(threeSum(input1).toString());
+    System.out.println(threeSum(input2).toString());
   }
 }
