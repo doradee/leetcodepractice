@@ -57,9 +57,7 @@ public class ThreeSum {
   }
   
   public static void main(String[] args) {
-    int[] input = { -3, -3, -2, -1, -1, 0, 0, 0, 1, 2, 3, 4 };
-    int[] sorted = { -4, -1, -1, 0, 1, 2 };
-    System.out.println(binarysearch(sorted, 3, sorted.length - 1, 2));
+    int[] input = { -3, 3, 0, 2, -1, -1, 0, 0, 0, -1, 2, 3, 4 };
     System.out.println(threeSum(input).toString());
   }
 }
