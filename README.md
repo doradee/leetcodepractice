@@ -1,4 +1,14 @@
 leetcodepractice
+
+most common used git commands:
+
+git status
+git add
+git commit
+git push origin master
+git clone link directory
+git config --global credential.helper store // or cache
+
 ================
 
 Rates Read	Attemp1	Attemp2	Attemp3	Attemp4	Attemp5	Title
