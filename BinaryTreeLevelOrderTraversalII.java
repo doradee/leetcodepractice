@@ -1,6 +1,5 @@
 package solutions;
 
-import java.awt.List;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
@@ -17,7 +16,8 @@ class TreeNode {
 }
 
 /*
- * Given a binary tree, return the bottom-up level order traversal of its nodes' values. (ie, from left to right, level by level from leaf to root).
+ * Given a binary tree, return the bottom-up level order traversal of its nodes' values. 
+ * (ie, from left to right, level by level from leaf to root).
 
 For example:
 Given binary tree {3,9,20,#,#,15,7},
@@ -37,6 +37,9 @@ return its bottom-up level order traversal as:
 public class BinaryTreeLevelOrderTraversalII {
   
   /* This is the classic solution. Inspired by 9Z */
+  /* For Tree Traversal Algorithms, see: 
+   * wikibooks's intro.
+   */
   public ArrayList<ArrayList<Integer>> levelOrderBottom(TreeNode root) {
     ArrayList<ArrayList<Integer>> result = new ArrayList<ArrayList<Integer>>();
     if (root == null) {
@@ -64,7 +67,7 @@ public class BinaryTreeLevelOrderTraversalII {
           queue.offer(node.right);
         }
       }
-      /*public void add(int index, E element) 
+      /* public void add(int index, E element) 
        * Inserts the specified element at the specified position in this list. 
        * Shifts the element currently at that position (if any) and any 
        * subsequent elements to the right (adds one to their indices).
