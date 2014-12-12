@@ -1,7 +1,6 @@
 package solutions;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 /*
  Given numRows, generate the first numRows of Pascal's triangle.
