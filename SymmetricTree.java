@@ -58,8 +58,6 @@ public class SymmetricTree {
     }
     if (root.left == null ^ root.right == null) {
       return false;
-    } else if (root.left == null && root.right == null) {
-      return true;
     } else {
       nodes.push(root.left);
       nodes.push(root.right);
