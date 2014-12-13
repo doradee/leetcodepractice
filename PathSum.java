@@ -33,6 +33,18 @@ public class PathSum {
     }
   }
   
+  /* 9Z's solution. More compact and clear */
+  public static boolean hasPathSum_9Z(TreeNode root, int sum) {
+    if (root == null) {
+      return false;
+    }
+    if (root.left == null && root.right == null) {
+      return sum == root.val;
+    }
+    return hasPathSum_9Z(root.left, sum - root.val)
+        || hasPathSum_9Z(root.right, sum - root.val);
+  }
+  
   /* first attemp. Misunderstood the question, failed. */
   public static boolean hasPathSum_Failed(TreeNode root, int sum) {
     if (root == null) {
