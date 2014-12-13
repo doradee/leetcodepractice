@@ -12,9 +12,8 @@ import java.util.Stack;
  */
 public class ValidParentheses {
   
-  /*Accepted. Trivial using stack */
-  
-  public static boolean isValid(String s) {
+  /* Accepted. Trivial using stack */
+  public static boolean isValid_MAP(String s) {
     if (s == null || s.length() == 0) {
       return true;
     }
@@ -23,11 +22,36 @@ public class ValidParentheses {
     dic.put('}', '{');
     dic.put(']', '[');
     Stack<Character> tokens = new Stack<Character>();
-    for (int i = 0; i < s.length();i++) {
-      if (tokens.isEmpty() || !tokens.peek().equals(dic.get(s.charAt(i)))){
+    for (int i = 0; i < s.length(); i++) {
+      if (tokens.isEmpty() || !tokens.peek().equals(dic.get(s.charAt(i)))) {
         tokens.push(s.charAt(i));
       } else {
         tokens.pop();
+      }
+    }
+    return tokens.isEmpty();
+  }
+  
+  /* Another solution without extra space and time for HashMap */
+  public static boolean isValid(String s) {
+    if (s == null || s.length() == 0) {
+      return true;
+    }
+    Stack<Character> tokens = new Stack<Character>();
+    for (char c : s.toCharArray()) {
+      if (c == '(' || c == '{' || c == '[') {
+        tokens.push(c);
+      } else {
+        if (tokens.isEmpty()) {
+          return false;
+        } else {
+          if (tokens.peek() == '(' && c == ')' || tokens.peek() == '{'
+              && c == '}' || tokens.peek() == '[' && c == ']') {
+            tokens.pop();
+          } else {
+            return false;
+          }
+        }
       }
     }
     return tokens.isEmpty();
