@@ -7,10 +7,21 @@ package solutions;
  */
 public class MinimumDepthofBinaryTree {
   
+  /* Accepted solution. Learned from 9Z */
   public static int minDepth(TreeNode root) {
     if (root == null) {
       return 0;
     }
-    return Math.min(minDepth(root.left) + 1, minDepth(root.right) + 1);
+    return getMin(root);
+  }
+  
+  public static int getMin(TreeNode root) {
+    if (root == null) {
+      return Integer.MAX_VALUE;
+    }
+    if (root.left == null && root.right == null) {
+      return 1;
+    }
+    return Math.min(getMin(root.left), getMin(root.right)) + 1;
   }
 }
