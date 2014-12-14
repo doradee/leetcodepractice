@@ -42,4 +42,20 @@ public class SumRoottoLeafNumbers {
       return sumNumbersCal(root.left, sum) + sumNumbersCal(root.right, sum);
     }
   }
+  
+  /* Solution from 9Z. More concise. */
+  public static int sumNumbers_9Z(TreeNode root) {
+    return sumNumbers_9Zcal(root, 0);
+  }
+  
+  public static int sumNumbers_9Zcal(TreeNode root, int sum) {
+    if (root == null) {
+      return 0;
+    }
+    sum = root.val + sum * 10;
+    if (root.left == null && root.right == null) {
+      return sum;
+    }
+    return sumNumbers_9Zcal(root.left, sum) + sumNumbers_9Zcal(root.right, sum);
+  }
 }
