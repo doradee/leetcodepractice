@@ -60,8 +60,10 @@ public class PopulatingNextRightPointersinEachNodeII {
     }
   }
   
-  /* A modified solution based on the constant memory solution of I 
-   * Learned from 9Z though */
+  /*
+   * A modified solution based on the constant memory solution of I Learned from
+   * 9Z though
+   */
   public static void connect(TreeLinkNode root) {
     if (root == null) {
       return;
@@ -69,6 +71,8 @@ public class PopulatingNextRightPointersinEachNodeII {
     TreeLinkNode next = null;
     TreeLinkNode pre = null;
     while (root != null) {
+      next = null;
+      pre = null;
       while (root != null) {
         /* find start of next level */
         if (next == null) {
