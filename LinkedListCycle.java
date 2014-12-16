@@ -23,4 +23,20 @@ public class LinkedListCycle {
     }
     return false;
   }
+  
+  /* more concise version from 9Z */
+  public boolean hasCycle_9Z(ListNode head) {
+    if (head == null) {
+      return false;
+    }
+    ListNode slow = head, fast = head;
+    do {
+      if (fast == null || fast.next == null) {
+        return false;
+      }
+      slow = slow.next;
+      fast = fast.next.next;
+    } while (slow != fast);
+    return true;
+  }
 }
